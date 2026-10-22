@@ -1,0 +1,6 @@
+{
+  "name": "English Tense Master",
+  "description": "เว็บแอปพลิเคชันเพื่อการเรียนรู้ภาษาอังกฤษ เน้นสอน 12 Tenses พร้อมคำอธิบายภาษาไทย คำอ่าน คำแปล เหตุผล แบบฝึกหัด คำศัพท์ และ AI English Tutor",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

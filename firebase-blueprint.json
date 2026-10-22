@@ -1,0 +1,88 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User account profile information",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique user ID matching Firebase Auth UID"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "User display name / username",
+          "maxLength": 64
+        },
+        "email": {
+          "type": "string",
+          "description": "User email address",
+          "maxLength": 128
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Account creation timestamp"
+        }
+      },
+      "required": ["id", "displayName"]
+    },
+    "UserProgress": {
+      "title": "UserProgress",
+      "description": "User learning progress, scores, and streak data",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "User ID that owns this progress record"
+        },
+        "xp": {
+          "type": "number",
+          "description": "Experience points"
+        },
+        "level": {
+          "type": "number",
+          "description": "Current learner level"
+        },
+        "streakDays": {
+          "type": "number",
+          "description": "Consecutive days learned"
+        },
+        "lastActiveDate": {
+          "type": "string",
+          "description": "Date string of last activity"
+        },
+        "completedLessons": {
+          "type": "array",
+          "description": "List of completed tense IDs"
+        },
+        "savedVocabularyIds": {
+          "type": "array",
+          "description": "Bookmarked vocabulary IDs"
+        },
+        "memorizedVocabularyIds": {
+          "type": "array",
+          "description": "Memorized vocabulary IDs"
+        },
+        "unlockedBadgeIds": {
+          "type": "array",
+          "description": "Unlocked badge IDs"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Last updated timestamp"
+        }
+      },
+      "required": ["userId"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Public user profile and identity document"
+    },
+    "/userProgress/{userId}": {
+      "schema": "UserProgress",
+      "description": "User learning progress, XP, streak and quiz records"
+    }
+  }
+}
